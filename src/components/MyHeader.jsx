@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../assets/netflix_logo.png';
-import profileIcon from '../assets/avatar.png';
 import './MyHeader.css';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import avatar from '../assets/avatar.png'
 
 // const MyHeader = function() {
 //     return (
@@ -45,26 +45,43 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 const MyHeader = function () {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-dark">
       <Container>
         <Navbar.Brand href="#home">
           <img
             src={logo}
             alt="logo"
-            height="30"
+            height="50"
             className="d-inline-block align-top"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='custom-toggle'/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">TV Show</Nav.Link>
-            <Nav.Link href="#link">Movies</Nav.Link>
-            <Nav.Link href="#link">Recent Added</Nav.Link>
-            <Nav.Link href="#link">My List</Nav.Link>
+            <Nav.Link href="#home" className='text-light'>Home</Nav.Link>
+            <Nav.Link href="#link" className='text-light'>TV Show</Nav.Link>
+            <Nav.Link href="#link" className='text-light'>Movies</Nav.Link>
+            <Nav.Link href="#link" className='text-light'>Recent Added</Nav.Link>
+            <Nav.Link href="#link" className='text-light'>My List</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+
+        {/* parte destra */}
+             <div className="d-none d-lg-flex align-items-center gap-3">
+          <i className="fas fa-search text-light"></i>
+          <p className="text-light m-0 d-none d-xl-block">Kids</p>
+          <i className="fas fa-bell text-light"></i>
+          <a href="#">
+            <img
+              src={avatar}
+              alt="Profile"
+              className="rounded-circle"
+              height="50"
+            />
+          </a>
+          <i className="fas fa-caret-down text-light"></i>
+        </div>
+
       </Container>
     </Navbar>
   );

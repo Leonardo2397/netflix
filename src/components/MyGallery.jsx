@@ -10,7 +10,8 @@ const MyGallery = ({ searchTerm }) => {
 
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(searchTerm)}`)
-      .then((res) => {
+    // invoco useEffect ogni volta che cambia il valore di searchTerm 
+    .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
@@ -32,10 +33,13 @@ const MyGallery = ({ searchTerm }) => {
 
   return (
     <div className="container my-4 bg-dark">
-      <h2 className="text-light mb-3">{searchTerm}</h2>
+      <h2 className="text-light mb-3">{searchTerm}</h2> 
+      {/* il titolo della sezione sarà la ricerca */}
       <div className="row">
         {movies.slice(0, 6).map((movie) => (
+            // prendo massimo 6 film 
           <div key={movie.imdbID} className="col-6 col-sm-4 col-md-2 mb-3">
+            {/* ogni film sarà inserito in una col */}
             <img
               src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450?text=No+Image'}
               alt={movie.Title}

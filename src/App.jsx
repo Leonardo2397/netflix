@@ -7,8 +7,8 @@ function App() {
   return(
     <>
   <MyHeader />
-  <MyGallery searchTerm="Harry Potter" />
-  <MyGallery searchTerm="Star Wars" />
+  <MyGallery searchTerm="Saw" />
+  <MyGallery searchTerm="Rocky" />
   <MyGallery searchTerm="The lord of the rings" />
   <MyFooter />
   </>
